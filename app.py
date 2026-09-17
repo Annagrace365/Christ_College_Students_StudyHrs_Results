@@ -1,4 +1,4 @@
-import streamlit
+import streamlit as st
 import joblib
 
 model=joblib.load("logistic_regression_studyhours_model.pkl")

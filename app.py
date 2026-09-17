@@ -10,6 +10,6 @@ if st.button("Predict"):
     st.success("Pass")
   else:
     st.error("Fail")
-    probability = model.predict_proba(new_student)[1]
-    st.write("Probability of Pass:", f"{probability:.2f}%")
+  probability = model.predict_proba([[hours]])[1]
+  st.write("Probability of Pass:", f"{probability:.2f}%")
     

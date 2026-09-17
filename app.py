@@ -6,10 +6,15 @@ st.title("Student Pass/Fail based on Study Hours")
 hours=st.number_input("Enter Study Hours:", min_value=0.0 ,max_value=15.0, value=5.0)
 if st.button("Predict"):
   prediction=model.predict([[hours]])
+  probability = model.predict_proba([[hours]])
+  pass_prob=probability[0][1]*100
+  fail_prob=probability[0][0]*100
   if prediction[0]==1:
     st.success("Pass")
+    st.write("Probability of Pass:", round(pass_pob,2),"%")
+
   else:
     st.error("Fail")
-  probability = model.predict_proba([[hours]])[1]
-  st.write("Probability of Pass:", f"{probability:.2f}%")
+    st.write("Probability of Fail:", round(fail_pob,2),"%")
+
     
